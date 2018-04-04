@@ -1,0 +1,7 @@
+XLODBC
+1
+DRIVER=SQL Server;SERVER=SQLHOTEL01;UID=LKM;Trusted_Connection=Yes;APP=Microsoft Office 2016;WSID=PC10036
+SELECT KommuneKode.KOMMUNE_TEKST AS 'Kommune', CO15800T.KOMMUNE_NR AS 'Kommune_nr', Count(CO15800T.KOMMUNE_NR) AS 'Antal_ejendomme', Max(CO15800T.CREATEDDATE) AS 'Opdateringsdato'  FROM GenericDownload.dbo.CO15800T CO15800T, GenericDownload.dbo.KommuneKode KommuneKode  WHERE CO15800T.KOMMUNE_NR = KommuneKode.KOMMUNE_NR  GROUP BY KommuneKode.KOMMUNE_TEKST, CO15800T.KOMMUNE_NR  ORDER BY Opdateringsdato DESC
+
+
+Kommune	Kommune_nr	Antal_ejendomme	Opdateringsdato
